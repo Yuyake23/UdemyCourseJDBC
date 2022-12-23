@@ -1,4 +1,4 @@
-package read;
+package application;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 import db.DB;
 
-public class Program {
+public class Read {
 	public static void main(String[] args) {
 		Connection conn = null;
 		Statement st = null;
@@ -16,7 +16,7 @@ public class Program {
 		try {
 			conn = DB.getConnection();
 			st = conn.createStatement();
-			rs = st.executeQuery("select * from department");
+			rs = st.executeQuery("SELECT * FROM Department;");
 
 			while (rs.next()) {
 				System.out.println("%d, %s".formatted(rs.getInt("id"), rs.getString("name")));
